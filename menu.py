@@ -1,5 +1,8 @@
 import sys
 import os
+import webbrowser
+import json
+import subprocess
 from download_manager import download_explanations
 
 # Display main menu options for overall Neetcode manager
@@ -97,10 +100,60 @@ def category_menu(categories, category):
             choice = int(choice)
             if 1 <= choice <= len(problems):
                 problem = problems[choice - 1]
-                problem_menu(problem)
+                problem_menu(categories, problem)
             elif choice == len(problems) + 1:
                 return  # This will go back to the previous menu
             else:
                 print("Invalid choice. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a number.")
+
+# Display specific problem menu
+def problem_menu(categories, problem):
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"\nNeetCode 150 {problem.problem_name}")
+        print(f"Difficulty: {problem.difficulty}")
+        print(f"Status: {'Completed' if problem.is_completed else 'Not Completed'}")
+        print(f"1. Watch explanation")
+        print(f"2. Open LeetCode")
+        print(f"3. Mark completed")
+        print(f"4. Back")
+        
+        choice = input("Enter your choice (1-4): ")
+        try:
+            choice = int(choice)
+            # Open local video file
+            if choice == 1:
+                video_path = construct_video_path(problem.category, problem)
+                if os.path.exists(video_path):
+                    open_video(video_path)
+                else:
+                    print(f"Video file not found: {video_path}")
+            # Open LeetCode URL for problem
+            elif choice == 2:
+                if problem.leetcode_url:
+                    webbrowser.open(problem.leetcode_url)
+                else:
+                    print("No LeetCode URL available.")
+            # Mark problem as completed and save progress
+            elif choice == 3:
+                problem.is_completed = not problem.is_completed
+                save_progress()
+                print(f"Problem marked as completed.")
+            # Go back
+            elif choice == 4:
+                return
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+# Open video file at video_path
+def open_video(video_path):
+    if os.name == 'nt':  # For Windows
+        os.startfile(video_path)
+    elif os.name == 'posix':  # For macOS and Linux
+        subprocess.call(('open', video_path))
+    else:
+        print(f"Unsupported operating system. Please open the video manually: {video_path}")
