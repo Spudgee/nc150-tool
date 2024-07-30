@@ -3,6 +3,7 @@ import os
 import webbrowser
 import json
 import subprocess
+from progress_manager import save_progress, load_progress
 from download_manager import download_explanations
 
 # Display main menu options for overall Neetcode manager
@@ -139,7 +140,7 @@ def problem_menu(categories, problem):
             # Mark problem as completed and save progress
             elif choice == 3:
                 problem.is_completed = not problem.is_completed
-                save_progress()
+                save_progress(categories)
                 print(f"Problem marked as completed.")
             # Go back
             elif choice == 4:
