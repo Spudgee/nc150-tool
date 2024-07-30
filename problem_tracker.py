@@ -25,6 +25,9 @@ class Problem:
         self.leetcode_url = leetcode_url
         self.is_completed = is_completed
 
+    def is_completed(self):
+        return self.is_completed
+
     def mark_completed(self):
         self.is_completed = True
 
