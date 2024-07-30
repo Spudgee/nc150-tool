@@ -41,7 +41,7 @@ class Problem:
 def initialize_categories():
     categories = {}
 
-    ARRAYS_AND_HASHING = "Arrays & Hashing"
+    ARRAYS_AND_HASHING = "Arrays and Hashing"
     TWO_POINTERS = "Two Pointers"
     STACK = "Stack"
     BINARY_SEARCH = "Binary Search"
@@ -50,14 +50,14 @@ def initialize_categories():
     TREES = "Trees"
     TRIES = "Tries"
     BACKTRACKING = "Backtracking"
-    HEAP_PRIORITY_QUEUE = "Heap / Priority Queue"
+    HEAP_PRIORITY_QUEUE = "Heap or Priority Queue"
     GRAPHS = "Graphs"
     ADVANCED_GRAPHS = "Advanced Graphs"
     ONE_D_DP = "1-D Dynamic Programming"
     TWO_D_DP = "2-D Dynamic Programming"
     GREEDY = "Greedy"
     INTERVALS = "Intervals"
-    MATH_AND_GEOMETRY = "Math & Geometry"
+    MATH_AND_GEOMETRY = "Math and Geometry"
     BIT_MANIPULATION = "Bit Manipulation"
 
     arrays_and_hashing = Category(ARRAYS_AND_HASHING)
@@ -124,15 +124,15 @@ def initialize_problems(categories):
 
     # 1. Arrays and Hashing
     problems.extend([
-        Problem("Arrays & Hashing", "Easy", "Contains Duplicate", "https://www.youtube.com/watch?v=3OamzN90kPg"),
-        Problem("Arrays & Hashing", "Easy", "Valid Anagram", "https://www.youtube.com/watch?v=9UtInBqnCgA"),
-        Problem("Arrays & Hashing", "Easy", "Two Sum", "https://www.youtube.com/watch?v=KLlXCFG5TnA"),
-        Problem("Arrays & Hashing", "Medium", "Group Anagrams", "https://www.youtube.com/watch?v=vzdNOK2oB2E"),
-        Problem("Arrays & Hashing", "Medium", "Top K Frequent Elements", "https://www.youtube.com/watch?v=YPTqKIgVk-k"),
-        Problem("Arrays & Hashing", "Medium", "Product of Array Except Self", "https://www.youtube.com/watch?v=bNvIQI2wAjk"),
-        Problem("Arrays & Hashing", "Medium", "Valid Sudoku", "https://www.youtube.com/watch?v=TjFXEUCMqI8"),
-        Problem("Arrays & Hashing", "Medium", "Encode and Decode Strings", "https://www.youtube.com/watch?v=B1k_sxOSgv8"),
-        Problem("Arrays & Hashing", "Medium", "Longest Consecutive Sequence", "https://www.youtube.com/watch?v=P6RZZMu_maU"),
+        Problem("Arrays and Hashing", "Easy", "Contains Duplicate", "https://www.youtube.com/watch?v=3OamzN90kPg"),
+        Problem("Arrays and Hashing", "Easy", "Valid Anagram", "https://www.youtube.com/watch?v=9UtInBqnCgA"),
+        Problem("Arrays and Hashing", "Easy", "Two Sum", "https://www.youtube.com/watch?v=KLlXCFG5TnA"),
+        Problem("Arrays and Hashing", "Medium", "Group Anagrams", "https://www.youtube.com/watch?v=vzdNOK2oB2E"),
+        Problem("Arrays and Hashing", "Medium", "Top K Frequent Elements", "https://www.youtube.com/watch?v=YPTqKIgVk-k"),
+        Problem("Arrays and Hashing", "Medium", "Product of Array Except Self", "https://www.youtube.com/watch?v=bNvIQI2wAjk"),
+        Problem("Arrays and Hashing", "Medium", "Valid Sudoku", "https://www.youtube.com/watch?v=TjFXEUCMqI8"),
+        Problem("Arrays and Hashing", "Medium", "Encode and Decode Strings", "https://www.youtube.com/watch?v=B1k_sxOSgv8"),
+        Problem("Arrays and Hashing", "Medium", "Longest Consecutive Sequence", "https://www.youtube.com/watch?v=P6RZZMu_maU"),
     ])
 
     # 2. Two Pointers
@@ -147,7 +147,7 @@ def initialize_problems(categories):
     # 3. Stack
     problems.extend([
         Problem("Stack", "Easy", "Valid Parentheses", "https://www.youtube.com/watch?v=xbbX7woE5Qg"),
-        Problem("Stack", "Medium", "Min Stack", "https://www.youtube.com/watch?v=qkLl7nAwDPo&t=12s"),
+        Problem("Stack", "Medium", "Min Stack", "https://www.youtube.com/watch?v=qkLl7nAwDPoandt=12s"),
         Problem("Stack", "Medium", "Evaluate Reverse Polish Notation", "https://www.youtube.com/watch?v=iu0082c4HDE"),
         Problem("Stack", "Medium", "Generate Parentheses", "https://www.youtube.com/watch?v=s9fokUqJ76A"),
         Problem("Stack", "Medium", "Daily Temperatures", "https://www.youtube.com/watch?v=cTBiBSnjO3c"),
@@ -232,13 +232,13 @@ def initialize_problems(categories):
 
     # 10. Heap / Priority Queue
     problems.extend([
-        Problem("Heap / Priority Queue", "Easy", "Kth Largest Element in a Stream", "https://www.youtube.com/watch?v=hOjcdrqMoQ8"),
-        Problem("Heap / Priority Queue", "Easy", "Last Stone Weight", "https://www.youtube.com/watch?v=B-QCq79-Vfw"),
-        Problem("Heap / Priority Queue", "Medium", "K Closest Points to Origin", "https://www.youtube.com/watch?v=rI2EBUEMfTk"),
-        Problem("Heap / Priority Queue", "Medium", "Kth Largest Element in an Array", "https://www.youtube.com/watch?v=XEmy13g1Qxc"),
-        Problem("Heap / Priority Queue", "Medium", "Task Scheduler", "https://www.youtube.com/watch?v=s8p8ukTyA2I"),
-        Problem("Heap / Priority Queue", "Medium", "Design Twitter", "https://www.youtube.com/watch?v=pNichitDD2E"),
-        Problem("Heap / Priority Queue", "Hard", "Find Median from Data Stream", "https://www.youtube.com/watch?v=itmhHWaHupI"),
+        Problem("Heap or Priority Queue", "Easy", "Kth Largest Element in a Stream", "https://www.youtube.com/watch?v=hOjcdrqMoQ8"),
+        Problem("Heap or Priority Queue", "Easy", "Last Stone Weight", "https://www.youtube.com/watch?v=B-QCq79-Vfw"),
+        Problem("Heap or Priority Queue", "Medium", "K Closest Points to Origin", "https://www.youtube.com/watch?v=rI2EBUEMfTk"),
+        Problem("Heap or Priority Queue", "Medium", "Kth Largest Element in an Array", "https://www.youtube.com/watch?v=XEmy13g1Qxc"),
+        Problem("Heap or Priority Queue", "Medium", "Task Scheduler", "https://www.youtube.com/watch?v=s8p8ukTyA2I"),
+        Problem("Heap or Priority Queue", "Medium", "Design Twitter", "https://www.youtube.com/watch?v=pNichitDD2E"),
+        Problem("Heap or Priority Queue", "Hard", "Find Median from Data Stream", "https://www.youtube.com/watch?v=itmhHWaHupI"),
     ])
 
     # 11. Graphs
@@ -321,16 +321,16 @@ def initialize_problems(categories):
         Problem("Intervals", "Hard", "Minimum Interval to Include Each Query", "https://www.youtube.com/watch?v=5hQ5WWW5awQ"),
     ])
 
-    # 17. Math & Geometry
+    # 17. Math and Geometry
     problems.extend([
-        Problem("Math & Geometry", "Easy", "Happy Number", "https://www.youtube.com/watch?v=ljz85bxOYJ0"),
-        Problem("Math & Geometry", "Easy", "Plus One", "https://www.youtube.com/watch?v=jIaA8boiG1s"),
-        Problem("Math & Geometry", "Medium", "Rotate Image", "https://www.youtube.com/watch?v=fMSJSS7eO1w"),
-        Problem("Math & Geometry", "Medium", "Spiral Matrix", "https://www.youtube.com/watch?v=BJnMZNwUk1M"),
-        Problem("Math & Geometry", "Medium", "Set Matrix Zeroes", "https://www.youtube.com/watch?v=T41rL0L3Pnw"),
-        Problem("Math & Geometry", "Medium", "Pow(x, n)", "https://www.youtube.com/watch?v=g9YQyYi4IQQ"),
-        Problem("Math & Geometry", "Medium", "Multiply Strings", "https://www.youtube.com/watch?v=1vZswirL8Y8"),
-        Problem("Math & Geometry", "Medium", "Detect Squares", "https://www.youtube.com/watch?v=bahebearrDc"),
+        Problem("Math and Geometry", "Easy", "Happy Number", "https://www.youtube.com/watch?v=ljz85bxOYJ0"),
+        Problem("Math and Geometry", "Easy", "Plus One", "https://www.youtube.com/watch?v=jIaA8boiG1s"),
+        Problem("Math and Geometry", "Medium", "Rotate Image", "https://www.youtube.com/watch?v=fMSJSS7eO1w"),
+        Problem("Math and Geometry", "Medium", "Spiral Matrix", "https://www.youtube.com/watch?v=BJnMZNwUk1M"),
+        Problem("Math and Geometry", "Medium", "Set Matrix Zeroes", "https://www.youtube.com/watch?v=T41rL0L3Pnw"),
+        Problem("Math and Geometry", "Medium", "Pow(x, n)", "https://www.youtube.com/watch?v=g9YQyYi4IQQ"),
+        Problem("Math and Geometry", "Medium", "Multiply Strings", "https://www.youtube.com/watch?v=1vZswirL8Y8"),
+        Problem("Math and Geometry", "Medium", "Detect Squares", "https://www.youtube.com/watch?v=bahebearrDc"),
     ])
 
     # 18. Bit Manipulation
