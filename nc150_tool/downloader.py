@@ -15,6 +15,7 @@ def download_video(url, output_path):
             'quiet': True,
             'no_warnings': True,
         }
+        # Download youtube video
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
         

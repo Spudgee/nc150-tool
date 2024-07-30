@@ -30,12 +30,16 @@ def main_menu(categories):
     options = ["Download Manager", "Problem Manager", "Settings",  "Exit"]
     while True:
         choice = display_menu("------- NeetCode 150 Manager -------", options)
+        # Display downloading options
         if choice == 1:
             download_manager_menu(categories)
+        # Display problem management options
         elif choice == 2:
             problem_manager_menu(categories)
+        # Display settings menu options
         elif choice == 3:
             settings_menu(categories)
+        # Exit out of app
         elif choice == 4:
             print("Exiting...")
             sys.exit()
@@ -52,7 +56,7 @@ def download_manager_menu(categories):
         elif choice == 2:
             return
 
-# Display download menu options
+# Display categories available for selection with completition data
 def problem_manager_menu(categories):
     while True:
         options = [f"{category_name}: {sum(p.is_completed for p in category.problems)}/{len(category.problems)} ({(sum(p.is_completed for p in category.problems) / len(category.problems) * 100):.1f}%)" 
@@ -66,6 +70,7 @@ def problem_manager_menu(categories):
             category_name = list(categories.keys())[choice - 1]
             category_menu(categories, categories[category_name])
 
+# Display different data management settings
 def settings_menu(categories):
     options = ["Delete all downloaded videos", "Reset completition progress", "Back"]
     while True:
@@ -77,19 +82,22 @@ def settings_menu(categories):
         elif choice == 3:
             return
 
+# Display list of problems contained by a category
 def category_menu(categories, category):
     while True:
+        # Di
         options = [f"{'[x]' if problem.is_completed else '[ ]'} {problem.difficulty} - {problem.problem_name}" 
                    for problem in category.problems]
         options.append("Back")
         
         choice = display_menu(f"(------- NeetCode 150 {category.category_name} -------", options)
         if choice == len(options):
-            return  # Back to previous menu
+            return
         else:
             problem = category.problems[choice - 1]
             problem_menu(categories, problem)
 
+# Display options available to manage different problems
 def problem_menu(categories, problem):
     while True:
         options = [
@@ -103,17 +111,20 @@ def problem_menu(categories, problem):
         print(f"\nDifficulty: {problem.difficulty}")
         print(f"Status: {'Completed' if problem.is_completed else 'Incomplete'}")
 
+        # Open the video file if it exists
         if choice == 1:
             video_path = construct_video_path(problem.category, problem)
             if os.path.exists(video_path):
                 open_video(video_path)
             else:
                 print(f"Video file not found: {video_path}")
+        # Open LeetCode problem in browser
         elif choice == 2:
             if problem.leetcode_url:
                 webbrowser.open(problem.leetcode_url)
             else:
                 print("No LeetCode URL available.")
+        # Mark the problem as complete or incomplete
         elif choice == 3:
             problem.is_completed = not problem.is_completed
             save_progress(categories)

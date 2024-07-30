@@ -3,7 +3,7 @@ import os
 
 PROGRESS_FILE = 'progress.json'
 
-# Save within categories
+# Save completed problems within dictionary of progress
 def save_progress(categories):
     progress = {}
     for category_name, category in categories.items():
@@ -15,15 +15,16 @@ def save_progress(categories):
     with open(PROGRESS_FILE, 'w') as f:
         json.dump(progress, f)
 
+# Load progress if it exists
 def load_progress(categories):
     if not os.path.exists(PROGRESS_FILE):
         print("No saved progress found. Starting fresh.")
         return
-
     try:
         with open(PROGRESS_FILE, 'r') as f:
             progress = json.load(f)
         
+        # Load dictionary from JSON and set appropriate problems to completed
         for category_name, category in categories.items():
             if category_name in progress:
                 for problem in category.problems:

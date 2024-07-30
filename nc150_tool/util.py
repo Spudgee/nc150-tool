@@ -25,6 +25,7 @@ def delete_videos():
 # Reset compleition status for all problems
 def reset_completion_data(categories):
     confirm = input("Are you sure you want to reset problem completion data? (y/n): ")
+    # Confirm deletion of all problem completion
     if confirm.lower() == 'y':
         # Reset completition status for each problem
         for category in categories.values():
