@@ -1,17 +1,23 @@
 import os
 from progress_manager import save_progress
 
+# Construct appropriate, clean path for loading and saving videos
 def construct_video_path(category, problem):
     base_dir = "nc150_videos"
     safe_filename = "".join([c for c in problem.problem_name if c.isalnum() or c in (' ', '-', '_')]).rstrip()
     video_filename = f"{problem.difficulty}_{safe_filename}.mp4".lower().replace(" ", "_")
-    return os.path.join(base_dir, category.category_name, video_filename)
+    
+    # Obtain category name as string for path creation
+    category_name = category if isinstance(category, str) else category.category_name
+    return os.path.join(base_dir, category_name, video_filename)
 
 # Open video file at video_path
 def open_video(video_path):
-    if os.name == 'nt':  # For Windows
+    # For Windows
+    if os.name == 'nt':
         os.startfile(video_path)
-    elif os.name == 'posix':  # For macOS and Linux
+    # For macOS and Linux
+    elif os.name == 'posix':
         subprocess.call(('open', video_path))
     else:
         print(f"Unsupported operating system. Please open the video manually: {video_path}")
