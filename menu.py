@@ -115,10 +115,10 @@ def problem_menu(categories, problem):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"\nNeetCode 150 {problem.problem_name}")
         print(f"Difficulty: {problem.difficulty}")
-        print(f"Status: {'Completed' if problem.is_completed else 'Not Completed'}")
+        print(f"Status: {'Completed' if problem.is_completed else 'Incomplete'}")
         print(f"1. Watch explanation")
         print(f"2. Open LeetCode")
-        print(f"3. Mark completed")
+        print(f"3. Mark as {'incomplete' if problem.is_completed else 'complete'}")
         print(f"4. Back")
         
         choice = input("Enter your choice (1-4): ")
@@ -141,7 +141,7 @@ def problem_menu(categories, problem):
             elif choice == 3:
                 problem.is_completed = not problem.is_completed
                 save_progress(categories)
-                print(f"Problem marked as completed.")
+                print(f"Problem marked as {'incomplete' if not problem.is_completed else 'complete'}.")
             # Go back
             elif choice == 4:
                 return
