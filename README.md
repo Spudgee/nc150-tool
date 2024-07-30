@@ -2,12 +2,11 @@
 Download Neetcode 150 video explanations into organized folders according to the roadmap.
 
 ## Prerequisites
-- Python 3.x
+- Python 3.11.5
 - `pip`
 
 ## Dependencies
 - `yt-dlp`
-- Other dependencies as listed in `requirements.txt`
 
 ## Installation
 1. **Clone the repository**:
@@ -25,7 +24,7 @@ Download Neetcode 150 video explanations into organized folders according to the
     ```
 
 ## Usage
-The program presents a menu-driven interface. Navigate through the options by entering the appropriate numbers.
+The program features a menu-driven interface. Navigate through the options by typing the appropriate number.
 
 ### Main Menu
 1. **Download Manager**: Download NeetCode 150 explanation videos.
@@ -69,5 +68,5 @@ Contributions, issues, and feature requests are welcome. Feel free to check [iss
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
-- [NeetCode](https://neetcode.io/) for providing excellent coding interview preparation resources.
+- [NeetCode](https://neetcode.io/) for providing the coding interview preparation material.
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) for the video downloading functionality.
