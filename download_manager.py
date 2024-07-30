@@ -1,6 +1,7 @@
 import os
 import sys
 import yt_dlp
+import util
 
 # Download specific YouTube video
 def download_video(url, output_path):
@@ -38,11 +39,7 @@ def download_explanations(categories):
         # Download Neetcode explanation video for each category problem
         for problem in category.problems:
             if problem.neetcode_url:
-                # Create a safe filename 
-                safe_filename = "".join([c for c in problem.problem_name if c.isalnum() or c in (' ', '-', '_')]).rstrip()
-                # Convert to all lower case, replace spaces with underscores
-                video_filename = f"{problem.difficulty}_{safe_filename}.mp4".lower().replace(" ", "_")
-                output_path = os.path.join(category_dir, video_filename)
+                output_path = construct_video_path(category, problem)
 
                 # Check if video not already downloaded
                 if not os.path.exists(output_path):
