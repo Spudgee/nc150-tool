@@ -5,6 +5,7 @@ import json
 import subprocess
 from progress_manager import save_progress, load_progress
 from download_manager import download_explanations
+from util import construct_video_path
 
 # Display main menu options for overall Neetcode manager
 def main_menu(categories):
