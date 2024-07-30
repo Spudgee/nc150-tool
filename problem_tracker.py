@@ -17,10 +17,9 @@ class Category:
 
 class Problem:
     def __init__(self, category, difficulty, problem_name, neetcode_url=None, leetcode_url=None, is_completed=False):
-        self.problem_name = problem_name
-        self.difficulty = difficulty
-        self.parent_category = parent_category
         self.category = category
+        self.difficulty = difficulty
+        self.problem_name = problem_name
         self.neetcode_url = neetcode_url
         self.leetcode_url = leetcode_url
         self.is_completed = is_completed
