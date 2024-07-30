@@ -4,7 +4,7 @@ import yt_dlp
 import util
 from util import construct_video_path
 
-# Download specific YouTube video
+# Download specific YouTube video of highest quality
 def download_video(url, output_path):
     try:
         ydl_opts = {
@@ -22,9 +22,9 @@ def download_video(url, output_path):
         print(f"Error downloading {url}: {str(e)}")
         return False
 
-
+# Download all 
 def download_explanations(categories):
-    base_dir = "neetcode_explanations"
+    base_dir = "nc150_videos"
     
     # Create the base directory if it doesn't exist
     if not os.path.exists(base_dir):

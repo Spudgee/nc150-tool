@@ -3,6 +3,7 @@ import os
 
 PROGRESS_FILE = 'progress.json'
 
+# Save within categories
 def save_progress(categories):
     progress = {}
     for category_name, category in categories.items():
