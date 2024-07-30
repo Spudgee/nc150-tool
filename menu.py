@@ -1,9 +1,12 @@
 import sys
+import os
 from download_manager import download_explanations
 
 # Display main menu options for overall Neetcode manager
 def main_menu(categories):
     while True:
+        # Clear for both Windows and Mac
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("\nNeetCode 150 Manager")
         print("1. Download manager")
         print("2. Problem Tracker")
@@ -30,7 +33,9 @@ def main_menu(categories):
 # Display main menu options for download manager
 def download_manager_menu(categories):
     while True:
-        print("\nNeetCode 150 Problem Tracker")
+        # Clear for both Windows and Mac
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("\nNeetCode 150 Download Manager")
         # Display categories with completion rates
         print(f"1. Download Neetcode explanations")
         print(f"2. Back")
@@ -52,6 +57,7 @@ def download_manager_menu(categories):
 # Display problem tracking menu with completion rates/progress
 def problem_tracker_menu(categories):
     while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("\nNeetCode 150 Problem Tracker")
         # Display categories with completion rates
         for i, (category_name, category) in enumerate(categories.items(), 1):
@@ -59,19 +65,41 @@ def problem_tracker_menu(categories):
             completed = sum(problem.is_completed for problem in category.problems)
             completion_rate = (completed / total) * 100 if total > 0 else 0
             print(f"{i}. {category_name}: {completed}/{total} ({completion_rate:.1f}%)")
-
         print(f"{len(categories) + 1}. Back")
-
         choice = input(f"Enter your choice (1-{len(categories) + 1}): ")
         try:
             choice = int(choice)
-            # User selected category
             if 1 <= choice <= len(categories):
                 category_name = list(categories.keys())[choice - 1]
-                display_category_problems(categories[category_name])
+                category_menu(categories, categories[category_name])  # This is correct
             elif choice == len(categories) + 1:
-                # Back to main menu
-                main_menu(categories)
+                return  # This will go back to the main menu
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+# Display problems within a category
+def category_menu(categories, category):
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"\nNeetCode 150 {category.category_name}")
+        
+        problems = category.problems
+        for i, problem in enumerate(problems, 1):
+            checkbox = "[x]" if problem.is_completed else "[ ]"
+            print(f"{i}. {checkbox} {problem.difficulty} - {problem.problem_name}")
+        
+        print(f"{len(problems) + 1}. Back")
+        
+        choice = input(f"Enter your choice (1-{len(problems) + 1}): ")
+        try:
+            choice = int(choice)
+            if 1 <= choice <= len(problems):
+                problem = problems[choice - 1]
+                problem_menu(problem)
+            elif choice == len(problems) + 1:
+                return  # This will go back to the previous menu
             else:
                 print("Invalid choice. Please try again.")
         except ValueError:
