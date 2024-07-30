@@ -1,5 +1,5 @@
 import sys
-import download_manager
+from download_manager import download_explanations
 
 # Display main menu options for overall Neetcode manager
 def main_menu(categories):
@@ -14,7 +14,7 @@ def main_menu(categories):
             choice = int(choice)
             # FIX: Access download menu
             if choice == 1:
-                break
+                download_manager_menu(categories)
             # Access problem tracking menu
             elif choice == 2:
                 problem_tracker_menu(categories)
