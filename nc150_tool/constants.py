@@ -17,3 +17,6 @@ GREEDY = "Greedy"
 INTERVALS = "Intervals"
 MATH_AND_GEOMETRY = "Math and Geometry"
 BIT_MANIPULATION = "Bit Manipulation"
+
+# Total problems
+TOTAL_PROBLEMS = 150

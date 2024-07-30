@@ -4,8 +4,8 @@ import webbrowser
 import json
 import subprocess
 from progress_manager import save_progress, load_progress
-from download_manager import download_explanations
-from util import construct_video_path, open_video
+from downloader import download_explanations
+from util import construct_video_path, open_video, delete_videos, reset_completion_data
 
 # Display set of options and a title with generic function
 def display_menu(title, options):
@@ -15,7 +15,7 @@ def display_menu(title, options):
         for i, option in enumerate(options, 1):
             print(f"{i}. {option}")
         
-        choice = input(f"Enter your choice (1-{len(options)}): ")
+        choice = input(f"\nEnter your choice (1-{len(options)}): ")
         try:
             choice = int(choice)
             if 1 <= choice <= len(options):
@@ -27,27 +27,33 @@ def display_menu(title, options):
 
 # Display main menu options for overall Neetcode manager
 def main_menu(categories):
-    options = ["Download Manager", "Problem Manager", "Exit"]
+    options = ["Download Manager", "Problem Manager", "Settings",  "Exit"]
     while True:
         choice = display_menu("------- NeetCode 150 Manager -------", options)
         if choice == 1:
             download_manager_menu(categories)
         elif choice == 2:
-            problem_tracker_menu(categories)
+            problem_manager_menu(categories)
         elif choice == 3:
+            settings_menu(categories)
+        elif choice == 4:
             print("Exiting...")
             sys.exit()
 
+# Display download menu options
 def download_manager_menu(categories):
     options = ["Download Neetcode explanations", "Back"]
     while True:
         choice = display_menu("------- NeetCode 150 Download Manager -------", options)
         if choice == 1:
             download_explanations(categories)
+            # Pause so that failed downloads can be viewed
+            input("Press any button to continue...")
         elif choice == 2:
-            return  # Back to main menu
+            return
 
-def problem_tracker_menu(categories):
+# Display download menu options
+def problem_manager_menu(categories):
     while True:
         options = [f"{category_name}: {sum(p.is_completed for p in category.problems)}/{len(category.problems)} ({(sum(p.is_completed for p in category.problems) / len(category.problems) * 100):.1f}%)" 
                    for category_name, category in categories.items()]
@@ -59,6 +65,17 @@ def problem_tracker_menu(categories):
         else:
             category_name = list(categories.keys())[choice - 1]
             category_menu(categories, categories[category_name])
+
+def settings_menu(categories):
+    options = ["Delete all downloaded videos", "Reset completition progress", "Back"]
+    while True:
+        choice = display_menu("------- NeetCode 150 Download Manager -------", options)
+        if choice == 1:
+            delete_videos()
+        elif choice == 2:
+            reset_completion_data(categories)
+        elif choice == 3:
+            return
 
 def category_menu(categories, category):
     while True:
@@ -82,10 +99,10 @@ def problem_menu(categories, problem):
             "Back"
         ]
         
+        choice = display_menu(f"------- NeetCode 150 {problem.problem_name} -------", options)
         print(f"\nDifficulty: {problem.difficulty}")
         print(f"Status: {'Completed' if problem.is_completed else 'Incomplete'}")
-        
-        choice = display_menu(f"------- NeetCode 150 {problem.problem_name} -------", options)
+
         if choice == 1:
             video_path = construct_video_path(problem.category, problem)
             if os.path.exists(video_path):

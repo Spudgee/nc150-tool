@@ -28,7 +28,7 @@ def initialize_problems(categories):
 
     # 3. Stack
     problems.extend([
-        Problem(STACK, "Easy", "Valid Parentheses", "https://www.youtube.com/watch?v=xbbX7woE5Qg", "https://leetcode.com/problems/valid-parentheses"),
+        Problem(STACK, "Easy", "Valid Parentheses", "https://www.youtube.com/watch?v=WTzjTskDFMg&t=9s", "https://leetcode.com/problems/valid-parentheses"),
         Problem(STACK, "Medium", "Min Stack", "https://www.youtube.com/watch?v=qkLl7nAwDPoandt=12s", "https://leetcode.com/problems/min-stack"),
         Problem(STACK, "Medium", "Evaluate Reverse Polish Notation", "https://www.youtube.com/watch?v=iu0082c4HDE", "https://leetcode.com/problems/evaluate-reverse-polish-notation"),
         Problem(STACK, "Medium", "Generate Parentheses", "https://www.youtube.com/watch?v=s9fokUqJ76A", "https://leetcode.com/problems/generate-parentheses"),
