@@ -11,3 +11,5 @@ def download_video(url, output_path='.'):
         print("Download completed!")
     except Exception as e:
         print(f"Failed to download {url}. Error: {e}")
+
+def download_explanations(categories):

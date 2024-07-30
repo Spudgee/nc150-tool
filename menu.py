@@ -1,4 +1,5 @@
 import sys
+import download_manager
 
 # Display main menu options for overall Neetcode manager
 def main_menu(categories):
@@ -18,7 +19,7 @@ def main_menu(categories):
             elif choice == 2:
                 problem_tracker_menu(categories)
             elif choice == 3:
-                # Exit
+                # Exit program
                 print("Exiting...")
                 sys.exit()
             else:
@@ -26,7 +27,29 @@ def main_menu(categories):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-# Display main menu options for overall Neetcode manager
+# Display main menu options for download manager
+def download_manager_menu(categories):
+    while True:
+        print("\nNeetCode 150 Problem Tracker")
+        # Display categories with completion rates
+        print(f"1. Download Neetcode explanations")
+        print(f"2. Back")
+
+        choice = input(f"Enter your choice (1-2): ")
+        try:
+            choice = int(choice)
+            # User selected category
+            if choice == 1:
+                download_explanations(categories)
+            elif choice == 2:
+                # Back to main menu
+                main_menu(categories)
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+# Display problem tracking menu with completion rates/progress
 def problem_tracker_menu(categories):
     while True:
         print("\nNeetCode 150 Problem Tracker")
