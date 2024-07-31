@@ -1,5 +1,5 @@
 # nc150-downloader
-Download Neetcode 150 video explanations into organized folders according to the roadmap.
+Download Neetcode 150 video explanations into organized folders according to the roadmap. Provide menu system for tracking the completion of different problems within the Neetcode 150 problem set. 
 
 ## Prerequisites
 - Python 3.11.5
