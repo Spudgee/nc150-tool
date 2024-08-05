@@ -7,18 +7,15 @@ from constants import *
 
 # Download specific YouTube video of highest quality
 def download_video(url, output_path):
-    # Attempt to download file at URL
+    ydl_opts = {
+        'format': 'best',
+        'outtmpl': output_path,
+        'no_warnings': True,
+        'quiet': True
+    }
     try:
-        ydl_opts = {
-            'format': 'best',
-            'outtmpl': output_path,
-            'quiet': True,
-            'no_warnings': True,
-        }
-        # Download youtube video
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
-        
         print(f"Downloaded: {os.path.basename(output_path)}")
         return True
     except Exception as e:
