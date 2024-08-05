@@ -3,6 +3,7 @@ from progress_manager import save_progress, load_progress
 from category_initializer import initialize_categories
 from problem_initializer import initialize_problems
 import subprocess
+import sys
 
 # YouTube-Downloader frequently changes, make sure updated for correct function
 def update_dependencies():
