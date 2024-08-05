@@ -1,4 +1,6 @@
 import os
+import subprocess
+import platform
 from progress_manager import save_progress
 
 # Construct appropriate, clean path for loading and saving videos
@@ -13,12 +15,21 @@ def construct_video_path(category, problem):
 
 # Open video file at video_path
 def open_video(video_path):
-    # For Windows
-    if os.name == 'nt':
+    # Running Windows
+    if platform.system() == "Windows":
         os.startfile(video_path)
-    # For macOS and Linux
-    elif os.name == 'posix':
+    # Running Mac OS
+    elif platform.system() == "Darwin":
         subprocess.call(('open', video_path))
+    # Running Linux
+    elif platform.system() == "Linux":
+        try:
+            subprocess.call(('xdg-open', video_path))
+        except FileNotFoundError:
+            try:
+                subprocess.call(('gio', 'open', video_path))
+            except FileNotFoundError:
+                print(f"Could not open the video. Please open it manually: {video_path}")
     else:
         print(f"Unsupported operating system. Please open the video manually: {video_path}")
 

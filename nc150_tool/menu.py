@@ -101,7 +101,8 @@ def category_menu(categories, category):
 def problem_menu(categories, problem):
     while True:
         options = [
-            "Watch explanation",
+            "Watch video downloaded",
+            "Open video link",
             "Open LeetCode",
             f"Mark as {'incomplete' if problem.is_completed else 'complete'}",
             "Back"
@@ -118,16 +119,22 @@ def problem_menu(categories, problem):
                 open_video(video_path)
             else:
                 print(f"Video file not found: {video_path}")
-        # Open LeetCode problem in browser
+        # Open video link in browser
         elif choice == 2:
+            if problem.neetcode_url:
+                webbrowser.open(problem.neetcode_url)
+            else:
+                print("No NeetCode URL available.")
+        # Open LeetCode problem in browser
+        elif choice == 3:
             if problem.leetcode_url:
                 webbrowser.open(problem.leetcode_url)
             else:
                 print("No LeetCode URL available.")
         # Mark the problem as complete or incomplete
-        elif choice == 3:
+        elif choice == 4:
             problem.is_completed = not problem.is_completed
             save_progress(categories)
             print(f"Problem marked as {'incomplete' if not problem.is_completed else 'complete'}.")
-        elif choice == 4:
+        elif choice == 5:
             return
